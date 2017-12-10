@@ -102,7 +102,7 @@
 			<div id="logo-group">
 
 				<!-- PLACE YOUR LOGO HERE -->
-				<span id="logo"> <a href="./index.html"><img src="img/logo-ipb-long-c.png" alt="IPBooklet"></a> </span>
+				<span id="logo"> <img src="img/logo-ipb-long-c.png" alt="IPBooklet"> </span>
 				<!-- END LOGO PLACEHOLDER -->
 
 				<!-- Note: The activity badge color changes when clicked and resets the number to 0
@@ -338,18 +338,9 @@
 				Please note that these links work a bit different than
 				traditional href="" links. See documentation for details.
 				-->
-
-				<ul>
-					<li class="">
+                <ul>
+					<li>
 						<a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
-						<ul>
-							<li>
-								<a href="index.html" title="Dashboard"><span class="menu-item-parent">Dashboard</span></a>
-							</li>
-							<li class="">
-								<a href="advanced-search.html" title="Dashboard"><span class="menu-item-parent">Advanced Search</span></a>
-							</li>
-						</ul>
 					</li>
                     <li class="">
 						<a href="#" title="Inventions"><i class="fa fa-lg fa-fw fa-lightbulb-o"></i> <span class="menu-item-parent">Inventions</span></a>
@@ -360,7 +351,7 @@
                             <li>
 								<a href="invention-new.html" title="Inventions List"><span class="menu-item-parent">New Invention</span></a>
 							</li>
-							<li  class="active">
+							<li class="active">
 								<a href="invention-search.html" title="Inventions Search"><span class="menu-item-parent">Search</span></a>
 							</li>
 						</ul>
@@ -478,6 +469,7 @@
 						</ul>
 					</li>
 				</ul>
+				
 			</nav>
 
 			<span class="minifyme" data-action="minifyMenu"> 
@@ -542,8 +534,10 @@
 					<div class="row">
 				
 						<!-- NEW COL START -->
+						<article class="col-sm-12 col-md-12 col-lg-12">
+                            
                             			
-                            <!-- Widget ID New Invention wid-id-1 -->
+                            <!-- Widget ID (each widget will need unique ID)-->
                             <div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" data-widget-deletebutton="false">
                                 <!-- widget options:
                                     usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
@@ -560,7 +554,7 @@
                                 -->
                                 <header>
                                     <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-                                    <h2>New Invention</h2>				
+                                    <h2>Invention Search</h2>				
 
                                 </header>
 
@@ -574,17 +568,23 @@
                                     </div>
                                     <!-- end widget edit box -->
 
-                                    
-                                    
                                     <!-- widget content -->
                                     <div class="widget-body no-padding">
 
                                         <form id="order-form" class="smart-form" novalidate="novalidate">
                                             <header>
-                                                Add Invention Details
+                                                Search Fields
                                             </header>
 
                                             <fieldset>
+                                                <div class="row">
+                                                    <section class="col col-6">
+                                                        <label class="input"> 
+                                                            <input type="text" name="trackingnum" placeholder="Tracking Number">
+                                                        </label>
+                                                    </section>
+                                                    
+                                                </div>
                                                 <div class="row">
                                                     <section class="col col-6">
                                                         <label class="input"> 
@@ -609,7 +609,7 @@
                                                         <div class="form-group">
 
                                                             <label class="input"> <i class="icon-append fa fa-calendar"></i>
-												            <input type="text" name="disclosuredate" placeholder="Disclosure date" class="form-control datepicker" data-dateformat="dd/mm/yy">
+												            <input type="text" name="disclosurebegindate" placeholder="Disclosure date - from" class="form-control datepicker" data-dateformat="dd/mm/yy">
                                                             </label>	
 															
 														</div>
@@ -617,28 +617,39 @@
                                                     </section>
                                                     <section class="col col-6">
                                                         <label class="input"> <i class="icon-append fa fa-calendar"></i>
-												        <input type="text" name="publicdate" placeholder="Date made public" class="form-control datepicker" data-dateformat="dd/mm/yy">
+												        <input type="text" name="disclosureenddate" placeholder="Disclosure date - to" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                                        </label>
+                                                    </section>
+                                                </div>
+                                                <div class="row">
+                                                    <section class="col col-6">
+                                                        <div class="form-group">
+
+                                                            <label class="input"> <i class="icon-append fa fa-calendar"></i>
+												            <input type="text" name="publicdatebegin" placeholder="Date made public - from" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                                            </label>	
+															
+														</div>
+
+                                                    </section>
+                                                    <section class="col col-6">
+                                                        <label class="input"> <i class="icon-append fa fa-calendar"></i>
+												        <input type="text" name="publicdateend" placeholder="Date made public - to" class="form-control datepicker" data-dateformat="dd/mm/yy">
                                                         </label>
                                                     </section>
                                                 </div>
                                             </fieldset>
-
                                             <fieldset>
-                                                <section>
-                                                    <label class="textarea"> <i class="icon-append fa fa-comment"></i> 										
-                                                        <textarea rows="5" name="description" placeholder="Description"></textarea> 
-                                                    </label>
-                                                </section>
-                                                
-                                                <section>
-                                                    <div class="input input-file">
-                                                        <span class="button"><input id="file2" type="file" name="file2" onchange="this.parentNode.nextSibling.value = this.value">Browse</span><input type="text" placeholder="Add files" readonly="">
-                                                    </div>
-                                                </section>
+                                                <div class="row">
+                                                    <section class="col col-6">
+                                                        <label class="input"> <i class="icon-append fa fa-comment"></i>
+                                                            <input type="text" name="description" placeholder="Description">
+                                                        </label>
+                                                    </section>
+                                                    
+                                                </div>
                                             </fieldset>
-                                            
                                             <fieldset>
-                                            
                                                 <div class="row">
                                                     <section class="col col-6">
                                                         <label class="input"> 
@@ -651,131 +662,27 @@
                                                         </label>
                                                     </section>
                                                 </div>
-
                                             </fieldset>
                                             <footer>
                                                 <button type="submit" class="btn btn-primary">
-                                                    Save
+                                                    Search
                                                 </button>
                                             </footer>
                                         </form>
 
                                     </div>
                                     <!-- end widget content -->
-                  
+
+
 
                                     
                                 </div>
                                 <!-- end widget div -->
 
                             </div>
-                            <!-- end widget -->	
-                            
-                            <!-- Widget outer div for selection -->
-                            <div class="addinventorwidget">
-                                <!-- Widget ID New Invention wid-id-2 -->
-                                <div class="jarviswidget" id="wid-id-2" data-widget-editbutton="false" data-widget-custombutton="false">
+                            <!-- end widget -->			
 
-                                <header>
-                                    <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-                                    <h2>Add Inventor Form </h2>				
-
-                                </header>
-
-                                <!-- widget div-->
-                                <div>
-
-                                    <!-- widget edit box -->
-                                    <div class="jarviswidget-editbox">
-                                        <!-- This area used as dropdown edit box -->
-
-                                    </div>
-                                    <!-- end widget edit box -->
-
-                                    <!-- widget content -->
-                                    <div class="widget-body no-padding">
-
-                                        <form id="inventor-form" class="smart-form" novalidate="novalidate">
-                                            <header>
-                                                Add Inventor Details
-                                            </header>
-
-                                            <fieldset>
-                                                <div class="row">
-                                                    <section class="col col-6">
-                                                        <label class="input"> <i class="icon-append fa fa-user"></i>
-                                                            <input type="text" name="inventorname" placeholder="Name">
-                                                        </label>
-                                                    </section>
-                                                    <section class="col col-6">
-                                                        <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
-                                                            <input type="email" name="inventoremail" placeholder="E-mail">
-                                                        </label>
-                                                    </section>
-
-                                                </div>
-
-                                                <div class="row">
-                                                    <section class="col col-6">
-                                                        <label class="input"> <i class="icon-append fa fa-briefcase"></i>
-                                                            <input type="text" name="company" placeholder="Company">
-                                                        </label>
-                                                    </section>
-                                                    <section class="col col-6">
-                                                        <label class="input"> <i class="icon-append fa fa-group"></i>
-                                                            <input type="text" name="inventordepartment" placeholder="Department">
-                                                        </label>
-                                                    </section>
-                                                </div>
-
-                                                <section>
-                                                <label class="textarea"> <i class="icon-append fa fa-comment"></i> 										
-                                                <textarea rows="3" name="inventorinfo" placeholder="Additional Inventor Information"></textarea> 
-                                                </label>
-                                                </section>
-                                                <div class="row">
-                                                    <section class="col col-3">
-                                                        <div class="inline-group">
-                                                        <label class="input">
-                                                            Percent Contribution
-                                                            <input class="percent" type="text" name="inventorcontribution"/>
-                                                            <i class="icon-append fa fa-percent" style="margin-top:18px"></i>
-                                                            <i></i>
-                                                        </label>
-                                                        </div>
-                                                    </section>
-                                                    <section class="col col-6">
-                                                        <div class="inline-group" >
-                                                        <label class="checkbox" style="margin-top: 20px">
-                                                        <input type="checkbox" id="inventorlead" name="inventorleadboolean">
-                                                        <i></i>Lead Inventor</label>
-                                                        </div>
-                                                    </section>
-
-                                                </div>
-
-                                            </fieldset>
-                                            <footer>
-                                                <button id="addinventorbutton" type="button" class="btn btn-primary">
-                                                    Add Another
-                                                </button>
-                                                <button type="submit" class="btn btn-primary">
-                                                    Save
-                                                </button>
-                                            </footer>
-                                        </form>
-
-                                    </div>
-                                    <!-- end widget content placeholder="Inventor Contribution"-->
-
-                                </div>
-                                <!-- end widget div -->
-
-                                </div>
-                                <!-- end widget -->
-                            </div>
-                            <!-- end Widget outer div for selection-->
-
+						</article>
 						<!-- END COL -->
 				
 					</div>
@@ -904,7 +811,10 @@
 		
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
 		
-		$(document).ready(function() {			
+		$(document).ready(function() {
+                        
+        
+            			
 
 			pageSetUp();
 			
@@ -926,22 +836,9 @@
             
             /* APPEND INVENTOR FORM */
             
-            $('#addinventorbutton').on('click', function() {
-                    var inventorFormHTML=$("#inventorform>fieldset").html();
-                    $("#inventorform>fieldset").append(inventorFormHTML);
-                
-                    /*var jsid = inventorFormHTML.match(/wid-id-[0-9]/);
-                    var idnum = parseInt(jsid[0].charAt(7));
-                    alert(idnum);
-                    var newid = jsid[0].replace(String(idnum), String(idnum+1));
-                    
-                    var resubmitaddid = /addinventor[0-9]/;
-                    var submitid = inventorFormHTML.match(resubmitaddid);
-                    var idnumadd = parseInt(submitid[0].charAt(11));
-                    var newidadd = submitid[0].replace(String(idnumadd), String(idnumadd+1));
-                    var jsnewForm = inventorFormHTML.replace(jsid[0], newid);
-                    var jsnewForm = jsnewForm.replace(submitid[0], newidadd);
-                    $("#widget-grid>div.row").append(jsnewForm);*/
+            $('#submitaddinventor').on('click', function(event) {
+                    alert("something!");
+                    $("#widget-grid").append($inventorFormHTML);
             });
             
             /* END APPEND INVENTOR FORM */
@@ -1042,7 +939,28 @@
 		
 		})
             
+        /* ADDITIONAL INVENTOR DIALOG */
+            
+        /* $('#submitaddinventor').on('click', ) */
+            
+        /* END ADDITIONAL INVENTOR DIALOG */
 
+		</script>
+
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+			_gaq.push(['_trackPageview']);
+			
+			(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+			})();
 		</script>
 
 	</body>
